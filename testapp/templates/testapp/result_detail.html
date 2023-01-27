@@ -1,0 +1,42 @@
+{% extends './base.html'%}
+
+{% block content %}
+
+<h2>結果詳細</h2>
+<table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>ID番号</th>
+        <th>名前</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{ result.id }}</th>
+        <td>{{ result.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>国語(点)</th>
+        <th>数学(点)</th>
+        <th>英語(点)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{ result.language }}</th>
+        <td>{{ result.math }}</td>
+        <td>{{ result.english }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <button type="button" class="btn btn-outline-secondary"><a href="{% url 'testapp:index' %}">一覧</a></button>
+    <button type="button" class="btn btn-outline-secondary"><a href="{% url 'testapp:create' %}">編集</a></button>
+    <button type="button" class="btn btn-outline-secondary"><a href="{% url 'testapp:delete' result.pk %}">削除</a></button>
+  </div>
+    
+{% endblock %}

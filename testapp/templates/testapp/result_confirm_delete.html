@@ -1,0 +1,9 @@
+{% extends './base.html'%}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <h2>「{{ result.name }}さん」のテスト結果を削除しますか。</h2>
+    <button class="dekete submit" type="submit">削除</button>
+</form>
+{% endblock %}

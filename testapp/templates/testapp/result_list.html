@@ -1,0 +1,33 @@
+{% extends './base.html'%}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID番号</th>
+            <th>名前</th>
+            <th>国語(点)</th>
+            <th>数学(点)</th>
+            <th>英語(点)</th>
+            <th>詳細</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        {% for result in object_list %}
+        <tr>
+            <th scope="row">{{ result.id }}</th>
+            <td>{{ result.name }}</td>
+            <td>{{ result.language }}</td>
+            <td>{{ result.math }}</td>
+            <td>{{ result.english }}</td>
+            <td><button type="button" class="btn btn-outline-secondary"><a href="{% url 'testapp:detail' result.pk %}">詳細</a></button></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-center">
+        <button><a href="{% url 'testapp:create' %}">新規作成</a></button>
+    </div>
+
+{% endblock %}
